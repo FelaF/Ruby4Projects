@@ -1,4 +1,4 @@
-stocks = [17,3,6,9,15,8,6,1,10]
+stocks = [17,3,6,9,15,8,6,100,10]
 
 
 
@@ -20,26 +20,21 @@ def stock_picker(array_of_numbers)
   end
   sorted_by_positive_difference = Array.new
   sorted_by_positive_difference = positive_difference.sort_by {|sub_array| -sub_array[2]}
-  divider = ""
-  divider2 = "*"
-  divider3 = "!!!"
-  penultimate = Array.new
+  ultimate = []
   sorted_by_positive_difference.each do |sub_array|
-    while (i < array_of_numbers.length) do
-      index_element_zero = array_of_numbers.find_index(sub_array[0])
-      index_element_one = array_of_numbers.find_index(sub_array[1])
-      p ("#{index_element_zero}, #{sub_array})")
-      p ("#{index_element_one}, #{sub_array})")
-      if (index_element_one > index_element_zero)
-        penultimate.push(sub_array)
-      end
-      index_element_one = 0
-      index_element_zero = 0
-      i += 1
+    index_element_zero = array_of_numbers.find_index(sub_array[0])
+    index_element_one = array_of_numbers.find_index(sub_array[1])
+    puts ("#{index_element_zero}, #{sub_array})")
+    puts ("#{index_element_one}, #{sub_array})")
+    if (index_element_one > index_element_zero)
+      ultimate.push(sub_array)
     end
   end
 
-  return sorted, divider, positive_difference, divider3, penultimate
+  divider = ""
+  divider2 = "###"
+  divider3 = "!!!"
+  return [ultimate[0][0],ultimate[0][1],"outcome of $#{ultimate[0][2]}"]
 
 
 end
